@@ -35,7 +35,7 @@ public function doLogin()
             );
             if(Auth::attempt($userdata))
                 {
-                    echo "Successful Log In!";
+                    echo "Successful Log In! Redirecting...";
                     Redirect::to('dashboard');
                 }
             else
