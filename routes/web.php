@@ -1,18 +1,17 @@
 <?php
 
-Route::get('/', function() {
-    return view('welcome');
-});
-Auth:: routes();
+Route::get('/', function() {return view('welcome');});
 
-Route::get('admin/home', 'HomeController@adminHome') -> name('admin.home') -> middleware('is_admin');
-
-Route::get('login', array('uses'=>'HomeController@doLogin'));
-
-Route::get('logout', array('uses'=>'HomeController@doLogout'));
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('employees', 'EmployeesController');
 
-Route::resource('employees', 'addEmployeeController');
+Route::resource('products', 'ProductsController');
+
+Route::resource('customers', 'CustomersController');
+
+Route::resource('orders', 'OrdersController');
+
+Route::resource('issues', 'IssuesController');

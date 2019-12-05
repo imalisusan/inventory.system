@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Employee;
 use Illuminate\Http\Request;
 
-class addEmployeeController extends Controller
+class EmployeesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class addEmployeeController extends Controller
      */
     public function index()
     {
-        $employees= Employee::latest() -> paginate(5);
+        $employees= Employee::latest() -> paginate(20);
         return view ('employees.index', compact('employees')) -> with('i', (request()->input('page',1)-1) *5 );
     }
 
@@ -38,8 +38,9 @@ class addEmployeeController extends Controller
     {
         $request->validate(
             [
-                'Employee Name' => 'required',
-                'National ID No' => 'required',
+                'Employee_Name' => 'required',
+                'National_ID_No' => 'required',
+                'Quantity' => 'required',
             ]
             );
             Employee::create($request->all());
@@ -79,12 +80,13 @@ class addEmployeeController extends Controller
     {
         $request->validate(
             [
-                'Employee Name' => 'required',
-                'National ID No' => 'required',
+                'Employee_Name' => 'required',
+                'National_ID_No' => 'required',
+                'Quantity' => 'required',
             ]
             );
             $employee -> update($request->all());
-            return redirect() ->route('employees.index') ->with('success','Product updated successfully');
+            return redirect() ->route('employees.index') ->with('success','Employee updated successfully');
     }
 
     /**
@@ -96,6 +98,6 @@ class addEmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return redirect() -route('employess.index') ->with('success','Product deleted successfully');
+        return redirect() ->route('employees.index') ->with('success','Employee deleted successfully');
     }
 }

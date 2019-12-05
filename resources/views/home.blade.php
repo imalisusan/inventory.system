@@ -79,12 +79,11 @@
                 </div>
 
                 <div class="links">
-                    <a href="/addEmployee">Add Daily Stock</a>
-                    <a href="#">View Stock Cards</a>
-                    <a href="#">New Orders</a>
-                    <a href="#">Issues</a>
-                    <a href="#">Employees</a>
-                    <a href="#">Customers</a>
+                    <a href="/products">Stock Cards</a>
+                    <a href="/orders">Orders</a>
+                    <a href="/issues">Issues</a>
+                    <a href="/employees">Employees</a>
+                    <a href="/customers">Customers</a>
                 </div>
             </div>
         </div>

@@ -11,17 +11,18 @@ class EmployeesTableSeeder extends Seeder
      */
     public function run()
     {
-        $user =[
+        $employee =
+        [
             [
-                'Employee Name' => 'Neema Njoki',
-                'National ID No' => '1235422',
+                'Employee_Name' => 'Neema Njoki',
+                'National_ID_No' => '1235422',
             ],
             [
-                'Employee Name' => 'Maryann Gitonga',
-                'National ID No' => '1293848',
+                'Employee_Name' => 'Susan Imali',
+                'National_ID_No' => '1293848',
             ],
         ];
-        foreach($user as $key => $value)
+        foreach($employee as $key => $value)
             {
                 Employee::create($value);
             }
