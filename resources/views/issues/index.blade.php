@@ -21,7 +21,7 @@
     <table class="table table-bordered">
         <tr>
             <th>Issue Id</th>
-            <th>Customer_Name</th>
+            <th>Customer Name</th>
             <th>Product Name</th>
             <th>Issue Quantity</th>
             <th width="280px">Action</th>
