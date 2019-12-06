@@ -20,20 +20,20 @@
     @endif
     <table class="table table-bordered">
         <tr>
-            <th>Customer No</th>
+            <th>Customer Id</th>
             <th>Customer Name</th>
             <th>Location</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($customers as $customer)
         <tr>
-            <td>{{ ++$i }}</td>
+            <td>{{ $customer->Customer_Id }}</td>
             <td>{{ $customer->Customer_Name }}</td>
             <td>{{ $customer->Location }}</td>
             <td>
-                <form action="{{ route('customers.destroy',$customer->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('customers.show',$customer->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('customers.edit',$customer->id) }}">Edit</a>
+                <form action="{{ route('customers.destroy',$customer->Customer_Id) }}" method="POST">
+                    <a class="btn btn-info" href="{{ route('customers.show',$customer->Customer_Id) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('customers.edit',$customer->Customer_Id) }}">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>

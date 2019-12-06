@@ -14,6 +14,12 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Issue Id:</strong>
+                {{ $issue->Issue_Id }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Customer Name:</strong>
                 {{ $issue->Customer_Name }}
             </div>
@@ -26,8 +32,8 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Quantity:</strong>
-                {{ $issue->Quantity}}
+                <strong>Issue Quantity:</strong>
+                {{ $issue->Issue_Quantity}}
             </div>
         </div>
     </div>

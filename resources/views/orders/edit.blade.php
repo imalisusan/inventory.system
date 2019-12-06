@@ -27,7 +27,7 @@
 
   
 
-    <form action="{{ route('orders.update',$order->id) }}" method="POST">
+    <form action="{{ route('orders.update',$order->Order_Id) }}" method="POST">
         @csrf
         @method('PUT')
          <div class="row">
@@ -45,8 +45,8 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Quantity:</strong>
-                    <input class="form-control" style="width:300px" name="Quantity"value="{{ $order->Quantity }}">
+                    <strong>Order Quantity:</strong>
+                    <input class="form-control" style="width:300px" name="Order_Quantity"value="{{ $order->Order_Quantity }}">
                 </div>
             </div>
             

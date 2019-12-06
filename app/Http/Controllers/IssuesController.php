@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Issue;
+use App\Customer;
+use App\Product;
 use Illuminate\Http\Request;
 
 class IssuesController extends Controller
@@ -25,7 +27,9 @@ class IssuesController extends Controller
      */
     public function create()
     {
-        return view('issues.create');
+        $customers = Customer::all();
+        $products = Product::all();
+        return view('issues.create', compact('customers'), compact('products'));
     }
 
     /**
@@ -39,7 +43,7 @@ class IssuesController extends Controller
         $request->validate(
             [
                 'Product_Name' => 'required',
-                'Quantity' => 'required',
+                'Issue_Quantity' => 'required',
                 'Customer_Name' => 'required',
             ]
             );
@@ -66,6 +70,8 @@ class IssuesController extends Controller
      */
     public function edit(Issue $issue)
     {
+        $customers = Customer::all();
+        $products = Product::all();
         return view ('issues.edit' , compact('issue'));
     }
 
@@ -81,7 +87,7 @@ class IssuesController extends Controller
         $request->validate(
             [
                 'Product_Name' => 'required',
-                'Quantity' => 'required',
+                'Issue_Quantity' => 'required',
                 'Customer_Name' => 'required',
             ]
             );
@@ -100,4 +106,5 @@ class IssuesController extends Controller
         $issue->delete();
         return redirect() ->route('issues.index') ->with('success','Issue deleted successfully');
     }
+    
 }

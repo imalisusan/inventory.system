@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
-use App\Customer;
+use App\Dailystock;
+use App\Employee;
 use App\Product;
 use Illuminate\Http\Request;
 
-class OrdersController extends Controller
+class Dailystocks extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders= Order::latest() -> paginate(20);
-        return view ('orders.index', compact('orders')) -> with('i', (request()->input('page',1)-1) *5 );
+        $dailystocks= Dailystock::latest() -> paginate(20);
+        return view ('dailystocks.index', compact('dailystocks')) -> with('i', (request()->input('page',1)-1) *5 );
     }
 
     /**
@@ -27,9 +27,9 @@ class OrdersController extends Controller
      */
     public function create()
     {
-        $customers = Customer::all();
+        $employees = Employee::all();
         $products = Product::all();
-        return view('orders.create', compact('customers'), compact('products'));
+        return view('dailystocks.create', compact('employees'), compact('products'));
     }
 
     /**
@@ -42,68 +42,69 @@ class OrdersController extends Controller
     {
         $request->validate(
             [
+                'Employee_Name' => 'required',
                 'Product_Name' => 'required',
-                'Order_Quantity' => 'required',
-                'Customer_Name' => 'required',
+                'Entry_Quantity' => 'required',
             ]
             );
             Order::create($request->all());
-            return redirect() -> route('orders.index') ->with('success','An order has been added successfully!');
+            return redirect() -> route('dailystocks.index') ->with('success','An entry has been added successfully!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Dailystock  $dailystock
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Dailystock $dailystock)
     {
-        $customers = Customer::all();
+        $employees = Employee::all();
         $products = Product::all();
-        return view('orders.show',compact('order'), compact('customers'), compact('products'));
+        return view('dailystocks.show',compact('dailystock'), compact('employees'), compact('products'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Dailystock  $dailystock
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(Dailystock $dailystock)
     {
-        return view ('orders.edit' , compact('order'));
+        return view ('dailystocks.edit' , compact('dailystock'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
+     * @param  \App\Dailystock  $dailystock
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Dailystock $dailystock)
     {
         $request->validate(
             [
+                
+                'Employee_Name' => 'required',
                 'Product_Name' => 'required',
                 'Order_Quantity' => 'required',
-                'Customer_Name' => 'required',
             ]
             );
-            $order -> update($request->all());
-            return redirect() ->route('orders.index') ->with('success','Order updated successfully');
+            $dailystock -> update($request->all());
+            return redirect() ->route('dailystocks.index') ->with('success','Entry updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Dailystock  $dailystock
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Dailystock $dailystock)
     {
-        $order->delete();
-        return redirect() ->route('orders.index') ->with('success','Order deleted successfully');
+        $dailystock->delete();
+        return redirect() ->route('dailystocks.index') ->with('success','Entry deleted successfully');
     }
 }

@@ -8,6 +8,6 @@ class Issue extends Model
 {
     protected $fillable=
     [
-        'Product_Name','Quantity','Customer_Name'
+        'Product_Name','Issue_Quantity','Customer_Name'
     ];
 }

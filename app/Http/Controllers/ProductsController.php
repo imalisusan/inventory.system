@@ -40,6 +40,7 @@ class ProductsController extends Controller
             [
                 'Product_Name'=> 'required',
                 'Description' => 'required',
+                'Product_Quantity' => 'required',
             ]
             );
             Product::create($request ->all());
@@ -81,6 +82,7 @@ class ProductsController extends Controller
             [
                 'Product_Name' => 'required',
                 'Description' => 'required',
+                'Product_Quantity' => 'required',
             ]
             );
             $product -> update($request -> all());

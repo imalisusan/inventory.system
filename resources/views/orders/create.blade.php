@@ -6,7 +6,7 @@
             <h2>Add New Order</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('order.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('orders.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -29,19 +29,27 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Customer Name:</strong>
-                <input type="text" style="width:300px"name="Customer_Name" class="form-control" required>
+                <select type="text" style="width:300px"name="Customer_Name" class="form-control"  required>
+                @foreach($customers as $customer)
+                <option value="{{$customer->Customer_Id}} : {{$customer->Customer_Name}}">{{$customer->Customer_Name}}</option>
+                @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Product Name:</strong>
-                <input type="text" style="width:300px"name="Product_Name" class="form-control" required>
+                <select type="text" style="width:300px"name="Product_Name" class="form-control" required>
+                @foreach($products as $product)
+                <option value="{{$product->Product_Id}} : {{$product->Product_Name}}">{{$product->Product_Name}}</option>
+                @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Quantity:</strong>
-                <input type="text" style="width:300px"name="Quantity" class="form-control" required>
+                <strong>Order Quantity:</strong>
+                <input type="text" style="width:300px"name="Order_Quantity" class="form-control" required>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -27,10 +27,16 @@
 
   
 
-    <form action="{{ route('customers.update',$customer->id) }}" method="POST">
+    <form action="{{ route('customers.update',$customer->Customer_Id) }}" method="POST">
         @csrf
         @method('PUT')
          <div class="row">
+         <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Customer Id:</strong>
+                    <input type="text" style="width:300px"name="Customer_Id" value="{{ $customer->Customer_Id }}" class="form-control">
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Customer Name:</strong>

@@ -3,10 +3,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add New Issue</h2>
+            <h2>Add New Entry</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('issues.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('dailystocks.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -22,16 +22,16 @@
     </div>
 @endif
 
-<form action="{{ route('issues.store') }}" method="POST">
+<form action="{{ route('dailystocks.store') }}" method="POST">
     @csrf
 
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Customer Name:</strong>
-                <select type="text" style="width:300px"name="Customer_Name" class="form-control"  required>
-                @foreach($customers as $customer)
-                <option value="{{$customer->Customer_Id}} : {{$customer->Customer_Name}}">{{$customer->Customer_Name}}</option>
+                <strong>Employee Name:</strong>
+                <select type="text" style="width:300px"name="Employee_Name" class="form-control"  required>
+                @foreach($employees as $employee)
+                <option value="{{$employee->Employee_Id}} : {{$employee->Employee_Name}}">{{$employee->Employee_Name}}</option>
                 @endforeach
                 </select>
             </div>
@@ -48,8 +48,8 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Issue Quantity:</strong>
-                <input type="text" style="width:300px"name="Issue_Quantity" class="form-control" required>
+                <strong>Completed Quantity:</strong>
+                <input type="text" style="width:300px"name="Completed_Quantity" class="form-control" required>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

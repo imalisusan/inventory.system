@@ -14,11 +14,21 @@ class CreateIssuesTable extends Migration
     public function up()
     {
         Schema::create('issues', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('Product_Name');
-            $table->integer('Quantity');
+            $table->bigIncrements('Issue_Id');
+            $table->integer('Customer_Id');
             $table->string('Customer_Name');
+            $table->integer('Product_Id');
+            $table->string('Product_Name');
+            $table->integer('Issue_Quantity');
             $table->timestamps();
+
+            $table->foreign('Customer_Id')
+      ->references('Customer_Id')->on('customers')
+      ->onDelete('cascade');
+
+            $table->foreign('Product_Id')
+      ->references('Product_Id')->on('products')
+      ->onDelete('cascade');
         });
     }
 

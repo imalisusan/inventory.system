@@ -20,22 +20,23 @@
     @endif
     <table class="table table-bordered">
         <tr>
-            <th>Product No</th>
+            <th>Product Id</th>
             <th>Product Name</th>
             <th>Description</th>
-            <th>Quantity</th>
+            <th>Product Quantity</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($products as $product)
         <tr>
-            <td>{{ ++$i }}</td>
+            <!--<td>{{ ++$i }}</td>-->
+            <td>{{ $product->Product_Id }}</td>
             <td>{{ $product->Product_Name }}</td>
             <td>{{ $product->Description }}</td>
-            <td>{{ $product->Quantity }}</td>
+            <td>{{ $product->Product_Quantity }}</td>
             <td>
-                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                <form action="{{ route('products.destroy',$product->Product_Id) }}" method="POST">
+                    <a class="btn btn-info" href="{{ route('products.show',$product->Product_Id) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('products.edit',$product->Product_Id) }}">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>

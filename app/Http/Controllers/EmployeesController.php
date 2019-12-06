@@ -40,7 +40,6 @@ class EmployeesController extends Controller
             [
                 'Employee_Name' => 'required',
                 'National_ID_No' => 'required',
-                'Quantity' => 'required',
             ]
             );
             Employee::create($request->all());
@@ -82,7 +81,6 @@ class EmployeesController extends Controller
             [
                 'Employee_Name' => 'required',
                 'National_ID_No' => 'required',
-                'Quantity' => 'required',
             ]
             );
             $employee -> update($request->all());
