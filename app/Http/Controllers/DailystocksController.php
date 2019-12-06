@@ -7,7 +7,7 @@ use App\Employee;
 use App\Product;
 use Illuminate\Http\Request;
 
-class Dailystocks extends Controller
+class DailystocksController extends Controller
 {
     /**
      * Display a listing of the resource.
