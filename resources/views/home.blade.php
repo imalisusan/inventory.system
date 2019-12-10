@@ -79,6 +79,7 @@
                 </div>
 
                 <div class="links">
+                    <a href="/dailystocks">Daily Stock</a>
                     <a href="/products">Stock Cards</a>
                     <a href="/orders">Orders</a>
                     <a href="/issues">Issues</a>

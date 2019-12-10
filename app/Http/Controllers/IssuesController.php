@@ -42,9 +42,9 @@ class IssuesController extends Controller
     {
         $request->validate(
             [
+                'Customer_Name' => 'required',
                 'Product_Name' => 'required',
                 'Issue_Quantity' => 'required',
-                'Customer_Name' => 'required',
             ]
             );
             Issue::create($request->all());
@@ -86,9 +86,10 @@ class IssuesController extends Controller
     {
         $request->validate(
             [
+                'Customer_Name' => 'required',
                 'Product_Name' => 'required',
                 'Issue_Quantity' => 'required',
-                'Customer_Name' => 'required',
+
             ]
             );
             $issue -> update($request->all());

@@ -56,6 +56,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a href="/home" class="dropdown-item">Home</a>
+                                    <a href="/dailystocks" class="dropdown-item">Daily Stock</a>
                                     <a href="/products" class="dropdown-item">Stock Cards</a>
                                     <a href="/orders" class="dropdown-item">Orders</a>
                                     <a href="/issues" class="dropdown-item">Issues</a>

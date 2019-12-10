@@ -15,3 +15,5 @@ Route::resource('customers', 'CustomersController');
 Route::resource('orders', 'OrdersController');
 
 Route::resource('issues', 'IssuesController');
+
+Route::resource('dailystocks', 'DailystocksController');
