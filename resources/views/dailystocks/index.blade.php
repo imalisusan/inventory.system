@@ -26,7 +26,7 @@
             <th>Entry Quantity</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($dialystocks as $dailystock)
+        @foreach ($dailystocks as $dailystock)
         <tr>
             <!--<td>{{ ++$i }}</td>-->
             <td>{{ $dailystock->Entry_Id }}</td>
@@ -46,7 +46,7 @@
         @endforeach
     </table>
 
-    {!! $orders->links() !!}
+    {!! $dailystocks->links() !!}
 
 </div>
 
